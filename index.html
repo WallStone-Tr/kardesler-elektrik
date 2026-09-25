@@ -28,7 +28,7 @@
     <!-- FontAwesome İkonlar -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 
-    <!-- Baloncuk Animasyon Stili -->
+    <!-- Animasyon Stilleri -->
     <style>
         .bubble-card {
             opacity: 0;
@@ -38,6 +38,20 @@
         .bubble-card.active {
             opacity: 1;
             transform: scale(1) translateY(0);
+        }
+
+        /* Hız Efekti: Servis Araçları İleri-Geri Titreşimi */
+        @keyframes speedPulse {
+            0% { transform: translateX(0); }
+            50% { transform: translateX(4px); }
+            100% { transform: translateX(0); }
+        }
+        .speed-icon {
+            display: inline-block;
+            animation: speedPulse 1.8s ease-in-out infinite;
+        }
+        .speed-badge {
+            animation: pulse 2s cubic-bezier(0.4, 0, 0.6, 1) infinite;
         }
     </style>
 </head>
@@ -52,7 +66,7 @@
                 </span>
                 <span class="hidden md:inline text-slate-500">|</span>
                 <span class="hidden md:inline text-slate-300">
-                    <i class="fa-solid fa-truck-fast text-blue-400"></i> Maltepe • Kadıköy • Kartal • Pendik Donanımlı Mobil Servis Ağı
+                    <i class="fa-solid fa-truck-fast text-blue-400 speed-icon"></i> Maltepe • Kadıköy • Kartal • Pendik Donanımlı Mobil Servis Ağı
                 </span>
             </div>
             <div class="font-medium text-slate-300">
@@ -104,7 +118,7 @@
                 <!-- Sol Kolon: Metinler -->
                 <div class="lg:col-span-7 space-y-6">
                     <div class="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-blue-900/80 border border-blue-500/30 text-amber-300 text-xs font-bold tracking-wide">
-                        <i class="fa-solid fa-bolt text-amber-400"></i>
+                        <i class="fa-solid fa-bolt text-amber-400 speed-badge"></i>
                         <span>Maltepe • Kadıköy • Kartal • Pendik • Tuzla Hızlı Servis</span>
                     </div>
 
@@ -275,7 +289,7 @@
         </div>
     </section>
 
-    <!-- 6. SAHA UYGULAMALARI & USTALIK VİDEOLARI -->
+    <!-- 6. SAHA UYGULAMALARI & USTALIK VİDEOLARI (TV VİDEOSU YERİNDE KORUNDU) -->
     <section id="videolar" class="py-20 bg-slate-100 border-t border-slate-200">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
             
@@ -372,7 +386,7 @@
         </div>
     </section>
 
-    <!-- 7. HİZMET BÖLGELERİ (SUADİYE DAHİL EDİLDİ) -->
+    <!-- 7. HİZMET BÖLGELERİ (HER BÖLGEYE EŞİT HIZLI MOBİL SERVİS) -->
     <section id="bolgeler" class="bg-white py-20 border-y border-slate-200">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
             <span class="text-blue-600 font-bold text-xs uppercase tracking-widest bg-blue-50 px-3 py-1 rounded-full border border-blue-200">
@@ -383,57 +397,92 @@
             
             <div class="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 gap-4">
                 
-                <div class="bg-slate-50 hover:bg-white p-5 rounded-2xl border border-slate-200 hover:border-amber-400 hover:shadow-lg transition text-center">
-                    <div class="w-10 h-10 rounded-xl bg-blue-600 text-amber-400 flex items-center justify-center mx-auto mb-2">
-                        <i class="fa-solid fa-truck-fast"></i>
+                <!-- 1. MALTEPE -->
+                <div class="bg-slate-50 hover:bg-white p-5 rounded-2xl border border-slate-200 hover:border-amber-400 hover:shadow-lg transition text-center flex flex-col justify-between items-center group">
+                    <div class="w-10 h-10 rounded-xl bg-blue-600 text-amber-400 flex items-center justify-center mb-2 shadow-sm">
+                        <i class="fa-solid fa-truck-fast speed-icon"></i>
                     </div>
-                    <h4 class="font-bold text-slate-900 text-sm">MALTEPE</h4>
-                    <p class="text-[11px] text-slate-500 mt-0.5">Hızlı Mobil Servis</p>
-                </div>
-
-                <!-- Kadıköy, Bostancı ve Suadiye Entegre Edildi -->
-                <div class="bg-slate-50 hover:bg-white p-5 rounded-2xl border border-slate-200 hover:border-amber-400 hover:shadow-lg transition text-center">
-                    <div class="w-10 h-10 rounded-xl bg-blue-600 text-amber-400 flex items-center justify-center mx-auto mb-2">
-                        <i class="fa-solid fa-truck-fast"></i>
+                    <div>
+                        <h4 class="font-bold text-slate-900 text-sm">MALTEPE</h4>
+                        <p class="text-[11px] text-slate-500 mt-0.5">Hızlı Mobil Servis</p>
                     </div>
-                    <h4 class="font-bold text-slate-900 text-sm">KADIKÖY, BOSTANCI & SUADİYE</h4>
-                    <p class="text-[11px] text-slate-500 mt-0.5">Hızlı Mobil Servis</p>
                 </div>
 
-                <div class="bg-slate-50 hover:bg-white p-5 rounded-2xl border border-slate-200 hover:border-amber-400 hover:shadow-lg transition text-center">
-                    <div class="w-10 h-10 rounded-xl bg-blue-600 text-amber-400 flex items-center justify-center mx-auto mb-2">
-                        <i class="fa-solid fa-truck-fast"></i>
+                <!-- 2. KADIKÖY -->
+                <div class="bg-slate-50 hover:bg-white p-5 rounded-2xl border border-slate-200 hover:border-amber-400 hover:shadow-lg transition text-center flex flex-col justify-between items-center group">
+                    <div class="w-10 h-10 rounded-xl bg-blue-600 text-amber-400 flex items-center justify-center mb-2 shadow-sm">
+                        <i class="fa-solid fa-truck-fast speed-icon"></i>
                     </div>
-                    <h4 class="font-bold text-slate-900 text-sm">KARTAL</h4>
-                    <p class="text-[11px] text-slate-500 mt-0.5">Hızlı Mobil Servis</p>
-                </div>
-
-                <div class="bg-slate-50 hover:bg-white p-5 rounded-2xl border border-slate-200 hover:border-amber-400 hover:shadow-lg transition text-center">
-                    <div class="w-10 h-10 rounded-xl bg-blue-600 text-amber-400 flex items-center justify-center mx-auto mb-2">
-                        <i class="fa-solid fa-truck-fast"></i>
+                    <div>
+                        <h4 class="font-bold text-slate-900 text-sm">KADIKÖY</h4>
+                        <p class="text-[11px] text-slate-500 mt-0.5">Hızlı Mobil Servis</p>
                     </div>
-                    <h4 class="font-bold text-slate-900 text-sm">PENDİK</h4>
-                    <p class="text-[11px] text-slate-500 mt-0.5">Hızlı Mobil Servis</p>
                 </div>
 
-                <div class="bg-slate-50 hover:bg-white p-5 rounded-2xl border border-slate-200 hover:border-amber-400 hover:shadow-lg transition text-center">
-                    <h4 class="font-bold text-slate-900 text-sm">ATAŞEHİR</h4>
-                    <p class="text-[11px] text-slate-500 mt-0.5">Mobil Servis</p>
+                <!-- 3. BOSTANCI & SUADİYE -->
+                <div class="bg-slate-50 hover:bg-white p-5 rounded-2xl border border-slate-200 hover:border-amber-400 hover:shadow-lg transition text-center flex flex-col justify-between items-center group">
+                    <div class="w-10 h-10 rounded-xl bg-blue-600 text-amber-400 flex items-center justify-center mb-2 shadow-sm">
+                        <i class="fa-solid fa-truck-fast speed-icon"></i>
+                    </div>
+                    <div>
+                        <h4 class="font-bold text-slate-900 text-sm">BOSTANCI & SUADİYE</h4>
+                        <p class="text-[11px] text-slate-500 mt-0.5">Hızlı Mobil Servis</p>
+                    </div>
                 </div>
 
-                <div class="bg-slate-50 hover:bg-white p-5 rounded-2xl border border-slate-200 hover:border-amber-400 hover:shadow-lg transition text-center">
-                    <h4 class="font-bold text-slate-900 text-sm">ÜMRANİYE</h4>
-                    <p class="text-[11px] text-slate-500 mt-0.5">Mobil Servis</p>
+                <!-- 4. KARTAL -->
+                <div class="bg-slate-50 hover:bg-white p-5 rounded-2xl border border-slate-200 hover:border-amber-400 hover:shadow-lg transition text-center flex flex-col justify-between items-center group">
+                    <div class="w-10 h-10 rounded-xl bg-blue-600 text-amber-400 flex items-center justify-center mb-2 shadow-sm">
+                        <i class="fa-solid fa-truck-fast speed-icon"></i>
+                    </div>
+                    <div>
+                        <h4 class="font-bold text-slate-900 text-sm">KARTAL</h4>
+                        <p class="text-[11px] text-slate-500 mt-0.5">Hızlı Mobil Servis</p>
+                    </div>
                 </div>
 
-                <div class="bg-slate-50 hover:bg-white p-5 rounded-2xl border border-slate-200 hover:border-amber-400 hover:shadow-lg transition text-center">
-                    <h4 class="font-bold text-slate-900 text-sm">TUZLA</h4>
-                    <p class="text-[11px] text-slate-500 mt-0.5">Mobil Servis</p>
+                <!-- 5. PENDİK -->
+                <div class="bg-slate-50 hover:bg-white p-5 rounded-2xl border border-slate-200 hover:border-amber-400 hover:shadow-lg transition text-center flex flex-col justify-between items-center group">
+                    <div class="w-10 h-10 rounded-xl bg-blue-600 text-amber-400 flex items-center justify-center mb-2 shadow-sm">
+                        <i class="fa-solid fa-truck-fast speed-icon"></i>
+                    </div>
+                    <div>
+                        <h4 class="font-bold text-slate-900 text-sm">PENDİK</h4>
+                        <p class="text-[11px] text-slate-500 mt-0.5">Hızlı Mobil Servis</p>
+                    </div>
                 </div>
 
-                <div class="bg-slate-50 hover:bg-white p-5 rounded-2xl border border-slate-200 hover:border-amber-400 hover:shadow-lg transition text-center">
-                    <h4 class="font-bold text-slate-900 text-sm">TUZLA & ÇAYIROVA</h4>
-                    <p class="text-[11px] text-slate-500 mt-0.5">Sanayi & Mobil Servis</p>
+                <!-- 6. ATAŞEHİR -->
+                <div class="bg-slate-50 hover:bg-white p-5 rounded-2xl border border-slate-200 hover:border-amber-400 hover:shadow-lg transition text-center flex flex-col justify-between items-center group">
+                    <div class="w-10 h-10 rounded-xl bg-blue-600 text-amber-400 flex items-center justify-center mb-2 shadow-sm">
+                        <i class="fa-solid fa-truck-fast speed-icon"></i>
+                    </div>
+                    <div>
+                        <h4 class="font-bold text-slate-900 text-sm">ATAŞEHİR</h4>
+                        <p class="text-[11px] text-slate-500 mt-0.5">Hızlı Mobil Servis</p>
+                    </div>
+                </div>
+
+                <!-- 7. ÜMRANİYE -->
+                <div class="bg-slate-50 hover:bg-white p-5 rounded-2xl border border-slate-200 hover:border-amber-400 hover:shadow-lg transition text-center flex flex-col justify-between items-center group">
+                    <div class="w-10 h-10 rounded-xl bg-blue-600 text-amber-400 flex items-center justify-center mb-2 shadow-sm">
+                        <i class="fa-solid fa-truck-fast speed-icon"></i>
+                    </div>
+                    <div>
+                        <h4 class="font-bold text-slate-900 text-sm">ÜMRANİYE</h4>
+                        <p class="text-[11px] text-slate-500 mt-0.5">Hızlı Mobil Servis</p>
+                    </div>
+                </div>
+
+                <!-- 8. TUZLA & ÇAYIROVA -->
+                <div class="bg-slate-50 hover:bg-white p-5 rounded-2xl border border-slate-200 hover:border-amber-400 hover:shadow-lg transition text-center flex flex-col justify-between items-center group">
+                    <div class="w-10 h-10 rounded-xl bg-blue-600 text-amber-400 flex items-center justify-center mx-2 mb-2 shadow-sm">
+                        <i class="fa-solid fa-industry speed-icon"></i>
+                    </div>
+                    <div>
+                        <h4 class="font-bold text-slate-900 text-sm">TUZLA & ÇAYIROVA</h4>
+                        <p class="text-[11px] text-slate-500 mt-0.5">Sanayi & Mobil Servis</p>
+                    </div>
                 </div>
 
             </div>
@@ -463,7 +512,7 @@
                                 <i class="fa-solid fa-map-pin"></i>
                             </div>
                             <span class="leading-snug">
-                                İdealtepe Mah. Kartopu Sk. Mimoza Apt. No:3/B, 34841 Maltepe/İstanbul
+                                İdealtepe Mah. Kartopu Sk. Mimoza Apt. No:3/B, 34841 Maltepe/İstanbul[span_1](start_span)[span_1](end_span)[span_2](start_span)[span_2](end_span)
                             </span>
                         </div>
 
@@ -471,7 +520,7 @@
                             <div class="w-8 h-8 rounded-lg bg-white/10 flex items-center justify-center text-amber-400 flex-shrink-0">
                                 <i class="fa-solid fa-phone"></i>
                             </div>
-                            <span class="font-semibold tracking-wide">0531 681 30 96</span>
+                            <span class="font-semibold tracking-wide">0531 681 30 96</span>[span_3](start_span)[span_3](end_span)[span_4](start_span)[span_4](end_span)
                         </div>
                     </div>
 
@@ -479,11 +528,11 @@
                     <div class="flex flex-wrap gap-4 pt-3">
                         <a href="https://share.google/bkOdvrMHQfxAGKmQ9" target="_blank" class="bg-amber-400 hover:bg-amber-500 text-slate-950 font-bold px-6 py-3.5 rounded-xl shadow-lg flex items-center gap-2.5 transition transform hover:-translate-y-0.5">
                             <i class="fa-solid fa-diamond-turn-right text-base"></i>
-                            <span>Yol Tarifi Al (Google Harita)</span>
+                            <span>Yol Tarifi Al (Google Harita)</span>[span_5](start_span)[span_5](end_span)
                         </a>
                         <a href="tel:05316813096" class="bg-slate-900/80 hover:bg-slate-900 text-white font-bold px-6 py-3.5 rounded-xl border border-slate-700 hover:border-slate-500 flex items-center gap-2.5 transition">
                             <i class="fa-solid fa-phone text-sm"></i>
-                            <span>Hemen Ara</span>
+                            <span>Hemen Ara</span>[span_6](start_span)[span_6](end_span)
                         </a>
                     </div>
                 </div>
@@ -499,7 +548,7 @@
                             referrerpolicy="no-referrer-when-downgrade">
                         </iframe>
                         <a href="https://share.google/bkOdvrMHQfxAGKmQ9" target="_blank" class="absolute bottom-3 right-3 bg-slate-900/90 hover:bg-slate-950 text-amber-400 text-xs font-bold px-3 py-1.5 rounded-lg border border-white/10 flex items-center gap-1.5 backdrop-blur-sm transition">
-                            <span>Haritada Aç</span>
+                            <span>Haritada Aç</span>[span_7](start_span)[span_7](end_span)
                             <i class="fa-solid fa-arrow-up-right-from-square text-[10px]"></i>
                         </a>
                     </div>
@@ -514,10 +563,10 @@
         <div class="max-w-7xl mx-auto px-4 text-center space-y-3">
             <div class="flex justify-center items-center gap-3 text-white font-bold text-base">
                 <img src="logo.jpg" alt="Logo" class="w-8 h-8 rounded-full border border-amber-400/40 object-cover">
-                <span>KARDEŞLER ELEKTRİK</span>
+                <span>KARDEŞLER ELEKTRİK</span>[span_8](start_span)[span_8](end_span)
             </div>
-            <p class="font-medium text-slate-400">İstanbul Anadolu Yakası Geneli Elektrik Tesisat & Bakım Hizmetleri • 2026</p>
-            <p class="text-slate-500 text-[11px]">Çalışma Saatleri: 07:00 - 18:00 | Temiz İşçilik & Faturalı Servis</p>
+            <p class="font-medium text-slate-400">İstanbul Anadolu Yakası Geneli Elektrik Tesisat & Bakım Hizmetleri • 2026</p>[span_9](start_span)[span_9](end_span)
+            <p class="text-slate-500 text-[11px]">Çalışma Saatleri: 07:00 - 18:00 | Temiz İşçilik & Faturalı Servis</p>[span_10](start_span)[span_10](end_span)
         </div>
     </footer>
 
